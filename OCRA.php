@@ -21,7 +21,18 @@ class OCRA {
 		}
 
 		// append $input (Q)
-		$msg .= str_pad(pack('H*', dechex($input)), 128, "\0", STR_PAD_RIGHT);
+		switch($this->suite['input']['format']) {
+			case 'n':
+				$msg .= str_pad(pack('H*', dechex($input)), 128, "\0", STR_PAD_RIGHT);
+				break;
+			case 'a':
+				if (strlen($input) > 128) $input = substr($input, 0, 128);
+				$msg .= str_pad($input, 128, "\0", STR_PAD_RIGHT);
+				break;
+			case 'h':
+				if (strlen($input) > 256) $input = substr($input, 0, 256);
+				$msg .= str_pad(pack('H*', $input), 128, "\0", STR_PAD_RIGHT);
+		}
 
 		// check for pin/password (P)
 		if (isset($this->suite['input']['pin_hash'])) {

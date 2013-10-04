@@ -79,6 +79,14 @@ class Test {
 		self::assertEq('24218844', $suite->generate('33333333'));
 		self::assertEq('36209546', $suite->generate('44444444'));
 
+		echo "Testing suite OCRA-1:HOTP-SHA256-8:QA08 ...\n";
+		$suite = new OCRA('OCRA-1:HOTP-SHA256-8:QA08', pack('H*', self::KEY_32));
+		self::assertEq('28247970', $suite->generate('CLI22220SRV11110'));
+		self::assertEq('01984843', $suite->generate('CLI22221SRV11111'));
+		self::assertEq('65387857', $suite->generate('CLI22222SRV11112'));
+		self::assertEq('03351211', $suite->generate('CLI22223SRV11113'));
+		self::assertEq('83412541', $suite->generate('CLI22224SRV11114'));
+
 		echo "End of tests!                       \n";
 	}
 }
