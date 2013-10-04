@@ -32,6 +32,7 @@ class OCRA {
 			case 'h':
 				if (strlen($input) > 256) $input = substr($input, 0, 256);
 				$msg .= str_pad(pack('H*', $input), 128, "\0", STR_PAD_RIGHT);
+				break;
 		}
 
 		// check for pin/password (P)
