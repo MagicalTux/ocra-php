@@ -1,3 +1,8 @@
 {
-	"name": "magicaltux/ocra-php"
+	"name": "magicaltux/ocra-php",
+	"require": {
+		"php-64bit": ">=5.3.0",
+		"ext-pcre": "*",
+		"ext-hash": "*"
+	}
 }

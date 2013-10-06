@@ -111,7 +111,7 @@ class OCRA {
 		if (!in_array($crypto_algo, hash_algos())) throw new Exception('Unsupported crypto algo required');
 
 		// now parse data input
-		$input_flags = [];
+		$input_flags = array();
 		$input = explode('-', strtolower($input));
 		if ($input[0] == 'c') {
 			// counter enabled
@@ -166,12 +166,12 @@ class OCRA {
 			}
 		}
 
-		return [
+		return array(
 			'name' => $suite_str,
 			'algo' => $algo, // OCRA-1
-			'crypto' => ['algo' => $crypto_algo, 'trunc' => $crypto_trunc],
+			'crypto' => array('algo' => $crypto_algo, 'trunc' => $crypto_trunc),
 			'input' => $input_flags,
-		];
+		);
 	}
 }
 
