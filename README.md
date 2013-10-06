@@ -14,11 +14,13 @@ checking if the client's device hasn't skipped values in the counter due to
 codes generated and dropped). The suite is parsed only when the object is
 constructed, which helps avoiding unneeded work on subsequent generations.
 
-	<?php
-	require_once('OCRA.php');
-	$suite = new OCRA('OCRA-1:HOTP-SHA1-6:C-QN08', $bin_key); // key needs to be binary
-	$res = $suite->generate($challenge, $counter);
-	echo $res;
+```php
+<?php
+require_once('OCRA.php');
+$suite = new OCRA('OCRA-1:HOTP-SHA1-6:C-QN08', $bin_key); // key needs to be binary
+$res = $suite->generate($challenge, $counter);
+echo $res;
+```
 
 ## Warnings
 
