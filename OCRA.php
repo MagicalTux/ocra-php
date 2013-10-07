@@ -70,6 +70,11 @@ class OCRA {
 		return str_pad($value % pow(10, $length), $length, '0', STR_PAD_LEFT);
 	}
 
+	public static function vsign($data1, $data2) {
+		$buffer = "\xe3\x08VSIGN V1\xdf\x71".chr(strlen($data1)).$data1."\xdf\x72".chr(strlen($data2)).$data2;
+		return sha1($buffer);
+	}
+
 	public function setSession($session) {
 		$this->session = pack('H*', $session);
 	}
